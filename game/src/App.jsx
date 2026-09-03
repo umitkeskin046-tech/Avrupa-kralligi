@@ -482,6 +482,13 @@ function App() {
     setSelectedBuildId(null);
   };
 
+  const focusCityCenterTask = () => {
+    const cityCenterPlot = cityPlots.find((plot) => plot.isSpecial);
+    if (!cityCenterPlot) return;
+    setBuildMode(true);
+    selectPlot(cityCenterPlot.id);
+  };
+
   const buildOnSelectedPlot = () => {
     if (!selectedPlotId || !selectedBuildId) return;
     const plot = cityPlots.find((item) => item.id === selectedPlotId);
@@ -688,13 +695,19 @@ function App() {
             backgroundRepeat: "no-repeat",
           }}
         >
+          <div className="cityActionGroup">
+            <button type="button" className={"buildModeButton" + (buildMode ? " active" : "")} onClick={toggleBuildMode}>
+              {buildMode ? "İnşayı Kapat" : "İnşa Et"}
+            </button>
+          </div>
+
           <div className="eventCornerStack">
-            <button className="event eventLeft">
+            <button type="button" className="event eventLeft">
               Kuzey Akınları
               <small>02:18:42</small>
             </button>
 
-            <button className="event eventRight">
+            <button type="button" className="event eventRight">
               Ejderha Avı
               <small>Hazır</small>
             </button>
@@ -702,7 +715,9 @@ function App() {
           </div>
 
           {currentTutorial?.text === "Şehir Merkezi'ni Kur" && (
-            <div className="city-main-task">Görev: {currentTutorial.text}</div>
+            <button type="button" className="city-main-task" onClick={focusCityCenterTask}>
+              Görev: {currentTutorial.text}
+            </button>
           )}
 
           {cityPlots.map((plot) => {
@@ -1119,12 +1134,14 @@ function App() {
 
       <nav className="bottomBar">
         <button
+          type="button"
           className={activeView === "city" ? "active" : ""}
           onClick={() => setActiveView("city")}
         >
           Şehir
         </button>
         <button
+          type="button"
           className={activeView === "world" ? "active" : ""}
           onClick={() => setActiveView("world")}
         >

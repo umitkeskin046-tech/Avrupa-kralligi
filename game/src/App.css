@@ -391,12 +391,28 @@ button {
   top: 12px;
   bottom: 76px;
   left: 18px;
-  z-index: 15;
+  z-index: 100;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.cityActionGroup .buildModeButton {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 2000;
 }
 
 .quickMenu {
@@ -427,12 +443,13 @@ button {
   flex-direction: column;
   gap: 8px;
   align-items: flex-end;
-  z-index: 40;
+  z-index: 100;
+  pointer-events: none;
 }
 
 .bottomBar {
   position: fixed;
-  z-index: 40;
+  z-index: 1100;
   left: 0;
   right: 0;
   bottom: 0;
@@ -444,6 +461,7 @@ button {
   padding: 6px;
   background: rgba(26, 29, 28, 0.96);
   border-top: 2px solid #756245;
+  pointer-events: auto;
 }
 
 .bottomBar button {
@@ -783,6 +801,18 @@ button {
   border: 1px solid #c7a66a;
   border-radius: 5px;
   font-weight: bold;
+  position: relative;
+  z-index: 1100;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.eventCornerStack .event,
+.city-main-task,
+.bottomBar button {
+  position: relative;
+  z-index: 2000;
+  pointer-events: auto;
+  cursor: pointer;
 }
 .buildModeButton.active { background: rgba(104, 67, 41, 0.95); }
 .city-main-task {
@@ -790,7 +820,8 @@ button {
   right: 150px;
   bottom: 76px;
   left: auto;
-  z-index: 30;
+  z-index: 100;
+  pointer-events: auto;
   padding: 4px 8px;
   color: #f1dfb5;
   background: rgba(35, 27, 21, 0.78);
@@ -814,6 +845,7 @@ button {
   clip-path: polygon(8% 0, 92% 0, 100% 28%, 94% 100%, 6% 100%, 0 28%);
   box-shadow: inset 0 0 0 1px rgba(224, 207, 165, 0.12), 0 0 5px rgba(199, 166, 106, 0.16);
   font-size: 9px;
+  pointer-events: auto;
 }
 .emptyPlot span, .emptyPlot small { display: block; }
 .emptyPlot small { color: #e4c98e; font-size: 8px; }
@@ -960,8 +992,33 @@ button {
   line-height: 1 !important;
 }
 
+.bottomBar button {
+  background: transparent !important;
+  border: 0 !important;
+  color: transparent !important;
+  pointer-events: auto !important;
+  z-index: 2000 !important;
+}
 .bottomBar button.active {
   color: #7b4a20 !important;
+}
+
+.city {
+  pointer-events: none;
+}
+
+.topBar,
+.cityActionGroup,
+.quickMenu,
+.eventCornerStack,
+.city-main-task,
+.bottomBar,
+.cityBuilding,
+.emptyPlot,
+.buildingPanel,
+.plotBuildPanel {
+  pointer-events: auto;
+  z-index: 1000;
 }
 /* ===== SOL ÜST PROFİL SON DÜZEN ===== */
 
