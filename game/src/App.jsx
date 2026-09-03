@@ -1129,20 +1129,28 @@ function App() {
               )}
             </div>
           )}
+
+          <button
+            type="button"
+            className="worldCityReturnButton"
+            onClick={() => setActiveView("city")}
+          >
+            Şehir
+          </button>
         </section>
       )}
 
       <nav className="bottomBar">
         <button
           type="button"
-          className={activeView === "city" ? "active" : ""}
+          className={"cityNavigationButton" + (activeView === "city" ? " active" : "")}
           onClick={() => setActiveView("city")}
         >
           Şehir
         </button>
         <button
           type="button"
-          className={activeView === "world" ? "active" : ""}
+          className={"worldNavigationButton" + (activeView === "world" ? " active" : "")}
           onClick={() => setActiveView("world")}
         >
           Dünya

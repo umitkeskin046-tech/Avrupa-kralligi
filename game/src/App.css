@@ -995,12 +995,52 @@ button {
 .bottomBar button {
   background: transparent !important;
   border: 0 !important;
+  box-shadow: none !important;
   color: transparent !important;
+  outline: none !important;
   pointer-events: auto !important;
+  cursor: pointer;
   z-index: 2000 !important;
+  transform: translateY(-64px);
 }
 .bottomBar button.active {
-  color: #7b4a20 !important;
+  color: transparent !important;
+}
+
+.worldNavigationButton {
+  position: relative;
+  left: -105px;
+}
+
+.worldCityReturnButton {
+  position: fixed;
+  left: 50%;
+  bottom: 8px;
+  z-index: 2000;
+  min-width: 105px;
+  height: 48px;
+  padding: 5px 10px;
+  transform: translateX(-50%);
+  color: #d8ccb3;
+  background: rgba(26, 29, 28, 0.96);
+  border: 1px solid #756245;
+  border-radius: 4px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.buildModeButton,
+.buildModeButton.active,
+.buildModeButton:hover,
+.buildModeButton:focus,
+.buildModeButton:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: transparent !important;
+  appearance: none !important;
 }
 
 .city {
